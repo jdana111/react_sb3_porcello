@@ -1,15 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
-const [ , , third] = ["AAA", "BBB", "CCC"]
-console.log("third = ", third)
+function App() {
+  const [checked, setChecked] = useState(false);
+  return (
+    <div>
+      <input type="checkbox" value={checked} onChange={() => setChecked(!checked)}/>
+      <p>{checked ? "checked" : "not checked"}</p>
+    </div>
+  );
+}
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App name="Joe"/>
+    <App />
   </React.StrictMode>
 );
-
